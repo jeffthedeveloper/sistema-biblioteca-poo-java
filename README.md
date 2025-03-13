@@ -155,15 +155,15 @@ Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em c
 ### Exemplo de estrutura do projeto com o `README.md`:
 
 ```
-sistema-biblioteca/
-├── biblioteca/
-│   ├── Biblioteca.java
-│   ├── BibliotecaApp.java
-│   ├── Livro.java
-│   ├── Usuario.java
-│   └── Emprestimo.java
-├── README.md
-└── LICENSE
+# sistema-biblioteca/
+# ├── biblioteca/
+# │   ├── Biblioteca.java
+# │   ├── BibliotecaApp.java
+# │   ├── Livro.java
+# │   ├── Usuario.java
+# │   └── Emprestimo.java
+# ├── README.md
+# └── LICENSE
 ```
 
 ---
