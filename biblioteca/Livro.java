@@ -6,7 +6,7 @@ public class Livro {
     private String isbn;
     private boolean disponível;
 
-    public Livro(String titulo, String autor, String isbn, boolean disponível) {
+    public Livro(String titulo, String autor, String isbn) {
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
@@ -48,7 +48,6 @@ public class Livro {
         this.disponível = disponível;
     }
 
-    @Override    
     public void exibirDetalhes() {
         System.out.println("Título: " + titulo);
         System.out.println("Autor: " + autor);

@@ -3,12 +3,14 @@ import java.time.LocalDate;
 
 
 public class Emprestimo {
+
     private Livro livro;
     private Usuario usuario;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
 
-    public Emprestimo(Livro livro, Usuario usuario, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
+
+    public Emprestimo(Livro livro, Usuario usuario, LocalDate dataEmprestimo) {
         this.livro = livro;
         this.usuario = usuario; 
         this.dataEmprestimo = dataEmprestimo;
@@ -52,6 +54,7 @@ public class Emprestimo {
         this.dataDevolucao = dataDevolucao;
     }
 
+    
     public void exibirDetalhes() {
         System.out.println("Livro: " + livro.getTitulo());
         System.out.println("Usuário: " + usuario.getNome());

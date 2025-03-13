@@ -8,7 +8,6 @@ public class Biblioteca {
     private List<Livro> livros = new ArrayList<>();
     private List<Usuario> usuarios = new ArrayList<>();
     private List<Emprestimo> emprestimos = new ArrayList<>();
-}
 
     public void adicionarLivro(Livro livro) {
         livros.add(livro);
@@ -18,12 +17,12 @@ public class Biblioteca {
         usuarios.add(usuario);
     }
 
-    public void realizarEmprestimo(Livro livro, Usuario usuario, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
-        Emprestimo emprestimo = new Emprestimo(livro, usuario, dataEmprestimo, dataDevolucao);
+    public void realizarEmprestimo(Livro livro, Usuario usuario, LocalDate dataEmprestimo) {
+        Emprestimo emprestimo = new Emprestimo (livro, usuario, dataEmprestimo);
         emprestimos.add(emprestimo);
     }
 
-    public void registrarDevolucao(Livro livro, Usuario usuario, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
+    public void registrarDevolucao(Livro livro, Usuario usuario, LocalDate dataDevolucao) {
         for (Emprestimo emprestimo : emprestimos) {
             if (emprestimo.getLivro().equals(livro) && emprestimo.getUsuario().equals(usuario)
                     && emprestimo.getDataEmprestimo().equals(dataEmprestimo) && emprestimo.getDataDevolucao() == null) {
@@ -39,16 +38,15 @@ public class Biblioteca {
         for (Livro livro : livros) {
             if (livro.getTitulo().equalsIgnoreCase(titulo)) {
                 return livro;
-            
+
             }
         }
         return null;
     }
-     
-    
-    public Usuario buscarUsuarioPorNome (String nome){
-        for (Usuario usuario : usuarios){
-            if (usuario.getNome().equalsIgnoreCase(nome)){
+
+    public Usuario buscarUsuarioPorNome(String nome) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getNome().equalsIgnoreCase(nome)) {
                 return usuario;
             }
         }
