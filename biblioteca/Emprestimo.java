@@ -52,6 +52,7 @@ public class Emprestimo {
 
     public void setDataDevolucao(LocalDate dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
+        this.livro.setDisponivel(true); // livro devolvido ao registrar devolução
     }
 
     
@@ -59,7 +60,7 @@ public class Emprestimo {
         System.out.println("Livro: " + livro.getTitulo());
         System.out.println("Usuário: " + usuario.getNome());
         System.out.println("Data do empréstimo: " + dataEmprestimo);
-        System.out.println("Data de devolução: " + dataDevolucao != null ? dataDevolucao : "Em aberto");
+        System.out.println("Data de devolução: " + (dataDevolucao != null ? dataDevolucao : "Em aberto"));
     }
 
 }

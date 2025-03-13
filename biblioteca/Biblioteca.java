@@ -18,20 +18,28 @@ public class Biblioteca {
     }
 
     public void realizarEmprestimo(Livro livro, Usuario usuario, LocalDate dataEmprestimo) {
-        Emprestimo emprestimo = new Emprestimo (livro, usuario, dataEmprestimo);
+        Emprestimo emprestimo = new Emprestimo(livro, usuario, dataEmprestimo);
         emprestimos.add(emprestimo);
     }
 
-    public void registrarDevolucao(Livro livro, Usuario usuario, LocalDate dataDevolucao) {
+    // Se o emprestimo tiver sido realizado e ainda não devolvido o método
+    // buscaEmprestimo retorna o emprestimo, caso contrário o retorno é null
+
+    public Emprestimo buscarEmprestimoAtivo(Livro livro) {
         for (Emprestimo emprestimo : emprestimos) {
-            if (emprestimo.getLivro().equals(livro) && emprestimo.getUsuario().equals(usuario)
-                    && emprestimo.getDataEmprestimo().equals(dataEmprestimo) && emprestimo.getDataDevolucao() == null) {
-                emprestimo.setDataDevolucao(dataDevolucao);
-                livro.setDisponivel(true);
-                return;
+            if (emprestimo.getLivro().equals(livro) && emprestimo.getDataDevolucao() == null) {
+                return emprestimo;
             }
         }
-        System.out.println("Empréstimo não encontrado");
+        return null;
+    }
+
+    public void registrarDevolucao(Livro livro, LocalDate dataDevolucao) {
+        Emprestimo emprestimo = buscarEmprestimoAtivo(livro);
+        if (emprestimo == null) {
+            throw new IllegalArgumentException("Empréstimo não encontrado.");
+        }
+        emprestimo.setDataDevolucao(dataDevolucao);
     }
 
     public Livro buscarLivroPorTitulo(String titulo) {

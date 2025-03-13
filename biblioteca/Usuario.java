@@ -27,14 +27,11 @@ public class Usuario {
         this.registro = registro;
     }
 
-    
-    @Override    
     public void exibirDetalhes() {
-     System.out.println("Nome:" + nome);
-     System.out.println("Registro:" + registro);
-     System.out.println();
+        System.out.println("Nome:" + nome);
+        System.out.println("Registro:" + registro);
+        System.out.println();
 
     }
-
 
 }
